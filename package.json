@@ -13,7 +13,7 @@
     "@types/yargs": "^17.0.33",
     "git-url-parse": "^15.0.0",
     "yargs": "^17.7.2",
-    "zenn-cli": "^0.4.6"
+    "zenn-cli": "^0.4.8"
   },
   "devDependencies": {
     "@qiita/qiita-cli": "^1.8.0",
@@ -23,5 +23,13 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.6.2"
   },
-  "type": "commonjs"
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hot377/tech-blog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hot377/tech-blog/issues"
+  },
+  "homepage": "https://github.com/hot377/tech-blog#readme"
 }
