@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(git push:*)",
+            "command": "sleep 60 && git -C \"${CLAUDE_PROJECT_DIR:-.}\" pull --rebase origin main 2>&1 | tail -20",
+            "async": true,
+            "statusMessage": "push後のQiita同期を待機して pull --rebase..."
+          }
+        ]
+      }
+    ]
+  }
+}
