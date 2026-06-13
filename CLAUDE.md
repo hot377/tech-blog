@@ -14,6 +14,12 @@ ZennとQiitaに公開する技術記事を管理するアーカイブリポジ�
 - Qiitaのフロントマターにある `id` / `updated_at` / `organization_url_name` などは同期処理が管理するフィールド。手動で書き換えない。
 - 自動コミットは `🔄 auto: ...` というメッセージで作られる（Actions由来）。
 
+## Git運用（push 後の pull）
+
+- `main` への push 後は、GitHub Actions による Qiita 同期が完了してから `git pull --rebase` を行う。
+- 同期完了前に pull すると自動生成コミット（`🔄 auto: ...`）を取り込めないため、**push してから約1分待ってから** pull する。
+- 流れ: `git push origin main` → 約1分待機 → `git pull --rebase origin main`。
+
 ## フロントマターの違い
 
 ZennとQiitaでフロントマターの形式が異なる（同期処理が相互変換する）。
