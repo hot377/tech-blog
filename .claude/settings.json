@@ -8,10 +8,10 @@
           {
             "type": "command",
             "if": "Bash(git push:*)",
-            "command": "sleep 60 && git -C \"${CLAUDE_PROJECT_DIR:-.}\" pull --rebase origin main 2>&1 | tail -20",
+            "command": "DIR=\"${CLAUDE_PROJECT_DIR:-.}\"; PREV=$(git -C \"$DIR\" rev-parse origin/main@{1} 2>/dev/null); CUR=$(git -C \"$DIR\" rev-parse origin/main 2>/dev/null); if [ -n \"$PREV\" ] && [ \"$PREV\" != \"$CUR\" ]; then RANGE=\"$PREV..$CUR\"; else RANGE=\"HEAD~1..HEAD\"; fi; if git -C \"$DIR\" diff --name-only \"$RANGE\" 2>/dev/null | grep -q \"^articles/\"; then sleep 60 && git -C \"$DIR\" pull --rebase origin main 2>&1 | tail -20; else echo \"articles/ の変更なし。Qiita同期 pull をスキップ\"; fi",
             "async": true,
             "timeout": 120,
-            "statusMessage": "push後のQiita同期を待機して pull --rebase..."
+            "statusMessage": "push後のQiita同期を待機して pull --rebase（articles/変更時のみ）..."
           }
         ]
       }
