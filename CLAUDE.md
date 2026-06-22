@@ -10,22 +10,15 @@ ZennとQiitaに公開する技術記事を管理するアーカイブリポジ�
 
 - **Zenn記事が正（source of truth）**。`articles/` のMarkdownを編集する。
 - **`qiita/public/` のファイルは自動生成物**。`main`/`master` への push をトリガーに、GitHub Actions（`.github/workflows/publish.yml`）が [zenn-qiita-sync](https://github.com/C-Naoki/zenn-qiita-sync) を実行して Zenn記事から変換・Qiitaへ公開する。
-- そのため Qiita記事の編集は基本的に行わない。手で編集しても次回同期で上書きされる可能性がある。
-- Qiitaのフロントマターにある `id` / `updated_at` / `organization_url_name` などは同期処理が管理するフィールド。手動で書き換えない。
 - 自動コミットは `🔄 auto: ...` というメッセージで作られる（Actions由来）。
+- パスごとの詳細な制約はパススコープルールに分離している（該当パスのファイルを扱うとき自動で読み込まれる）:
+  - Qiita 記事の取り扱い → `.claude/rules/qiita-generated.md`（`qiita/**`）
+  - Zenn 記事のファイル名・フロントマター規約 → `.claude/rules/zenn-frontmatter.md`（`articles/**`）
 
 ## Git運用（push 後の pull）
 
-- `main` への push 後は、GitHub Actions による Qiita 同期が完了してから `git pull --rebase` を行う。
-- 同期完了前に pull すると自動生成コミット（`🔄 auto: ...`）を取り込めないため、**push してから約1分待ってから** pull する。
-- 流れ: `git push origin main` → 約1分待機 → `git pull --rebase origin main`。
-
-## フロントマターの違い
-
-ZennとQiitaでフロントマターの形式が異なる（同期処理が相互変換する）。
-
-- Zenn（`articles/*.md`）: `title` / `emoji` / `type`(`tech` or `idea`) / `topics`(配列) / `published`
-- Qiita（`qiita/public/*.md`）: `title` / `tags` / `private` / `updated_at` / `id` / `organization_url_name` / `slide` / `ignorePublish`
+- `main` への push 後は、GitHub Actions による Qiita 同期（`🔄 auto: ...` コミット）が完了してから取り込む必要がある。同期完了前に pull すると自動生成コミットを取り込めない。
+- この「push → 約1分待機 → `git pull --rebase origin main`」の流れは `.claude/settings.json` の PostToolUse フックで**自動化済み**。手動での待機・pull は不要。
 
 ## 主なコマンド
 
