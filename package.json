@@ -1,14 +1,14 @@
 {
-  "name": "zenn-archive",
+  "name": "tech-blog",
   "version": "1.0.0",
-  "description": "![](https://github.com/C-Naoki/zenn-archive/actions/workflows/publish.yml/badge.svg)",
+  "description": "Archive of tech articles published to Zenn and Qiita.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "hot377",
+  "license": "MIT",
   "dependencies": {
     "@types/yargs": "^17.0.33",
     "git-url-parse": "^15.0.0",
