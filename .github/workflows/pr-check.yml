@@ -1,0 +1,57 @@
+name: PR check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+# Dependabot の PR でも動くよう、読み取り権限だけで完結させる（secrets は使わない）
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  dependencies:
+    name: Dependencies
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "lts/*"
+          cache: npm
+
+      # 依存パッケージのインストールスクリプトは実行しない
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      # moderate 以上の既知の脆弱性があれば失敗させる
+      - name: Audit dependencies
+        run: npm audit --audit-level=moderate
+
+      # zenn-cli が起動し、既存の記事を読み込めることを確認する
+      - name: List articles
+        run: npx zenn list:articles
+
+  workflows:
+    name: Workflows
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      ACTIONLINT_VERSION: "1.7.12"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Install actionlint
+        run: bash <(curl -fsSL "https://raw.githubusercontent.com/rhysd/actionlint/v${ACTIONLINT_VERSION}/scripts/download-actionlint.bash") "${ACTIONLINT_VERSION}"
+
+      - name: Lint workflows
+        run: ./actionlint -color
