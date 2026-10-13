@@ -1,0 +1,35 @@
+version: 2
+
+updates:
+  # zenn-cli などローカルのプレビュー用パッケージ
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Tokyo"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    # 記事リポジトリなので PR を増やさないよう、1 回の更新を 1 つの PR にまとめる
+    groups:
+      npm:
+        patterns:
+          - "*"
+
+  # publish.yml で使っている Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Tokyo"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
