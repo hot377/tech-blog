@@ -40,7 +40,3 @@ npx zenn new:article --slug 記事のスラッグ --title タイトル --type id
 - `qiita/public/` — Qiita記事（自動生成、原則手動編集しない）。
 - `books/` — Zenn books（Zennのbook構成に従う）。
 - `images/` — 記事で使う画像。`images/YYYY-MM-DD/` のように日付ごとに配置。
-
-## 補足
-
-- `tsconfig.json` は `scripts/ztoq.tsx` を `include` しているが、現状そのファイル/`scripts` ディレクトリは存在しない（変換処理は外部Actionに移行済み）。
