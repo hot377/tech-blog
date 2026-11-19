@@ -36,7 +36,7 @@ npx zenn new:article --slug 記事のスラッグ --title タイトル --type id
 
 ## ディレクトリ
 
-- `articles/` — Zenn記事（編集対象）。ファイル名は `YYYY-MM-DD-tech.md` の慣習。
+- `articles/` — Zenn記事（編集対象）。ファイル名は `YYYY-MM-DD-<内容の英語 slug>.md`（旧記事は `YYYY-MM-DD-tech.md` のまま）。
 - `qiita/public/` — Qiita記事（自動生成、原則手動編集しない）。
 - `books/` — Zenn books（Zennのbook構成に従う）。
 - `images/` — 記事で使う画像。`images/YYYY-MM-DD/` のように日付ごとに配置。
