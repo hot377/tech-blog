@@ -58,7 +58,7 @@ assignees: ''
 ## 記事の情報
 
 - 種別: tech / idea
-- ファイル名: 執筆開始日の `YYYY-MM-DD-tech.md`（リポジトリの慣習に従う）
+- ファイル名: 執筆開始日の `YYYY-MM-DD-<内容の英語 slug>.md`
 
 ## 参考資料
 

@@ -29,7 +29,7 @@ tools: Read, Grep, Glob
   - `type` — `tech` または `idea`
   - `topics` — 配列
   - `published` — `true` / `false`
-- **ファイル名規約**: `YYYY-MM-DD-tech.md`。slug は `a-z0-9` とハイフン/アンダースコア、12〜50 文字。
+- **ファイル名規約**: `YYYY-MM-DD-<内容の英語 slug>.md`。slug は `a-z0-9` とハイフン/アンダースコア、12〜50 文字。公開済みの旧形式 `YYYY-MM-DD-tech.md` はリネームを指摘しない（記事 URL が変わるため）。
 - **`qiita/` を手動編集していないか**（編集していれば、`articles/` 側を直すよう指摘）。
 
 ## 2. 文章品質
