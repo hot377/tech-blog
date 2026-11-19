@@ -10,7 +10,7 @@
   "author": "hot377",
   "license": "MIT",
   "dependencies": {
-    "zenn-cli": "^0.5.7"
+    "zenn-cli": "^0.5.11"
   },
   "type": "commonjs",
   "repository": {
