@@ -8,7 +8,7 @@ published: true
 
 ## はじめに
 
-ずっと放置していた Windows PC を、ついに捨てました！!
+ずっと放置していた Windows PC を、ついに捨てました！！
 復元されると困るデータがあるけど、消去ソフトにお金はかけたくない。そんなときに見つけたのが cipher コマンドです。
 
 https://www.youtube.com/watch?v=TxXGpRvKckw&t=607s
@@ -24,7 +24,6 @@ https://www.youtube.com/watch?v=TxXGpRvKckw&t=607s
 - PC を捨てたいけど、データが残るのが心配な人
 - できればタダで済ませたい人
 
-
 ## cipher コマンドとは
 
 cipher は、Windows に最初から入っているコマンドです。
@@ -32,24 +31,22 @@ cipher は、Windows に最初から入っているコマンドです。
 
 ポイントは「空き領域だけ」を上書きするところ。使っているファイルは消えないので、先に PC を初期化しておきましょう！
 
-
 ## PC の初期化
 
-YouTubeの動画の通りに行って、1時間程度でできました！
+YouTube の動画のとおりに進めて、1 時間程度でできました！
 
 https://www.youtube.com/watch?v=pVcwKfyALy8
 
 ## cipher /w の実行
 
-いざ、cipherコマンドを実行！！！！！
+いざ、cipher コマンドを実行！！！！！
 
-```
+```cmd
 cipher /w:C:\
 ```
-40分くらいかかりました！！
+
+40 分くらいかかりました！！
 事前にデータ削除したけど、空き領域が少なかった。。？
-
-
 
 ## 削除した PC のスペック
 
@@ -58,12 +55,12 @@ cipher /w:C:\
 | プロセッサ | Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz(1.99GHz) |
 | RAM | 8.00GB |
 | ストレージ | 256GB |
-| OS | Windows11 |
+| OS | Windows 11 |
 
 ## まとめ
-cipherコマンド便利だなぁ。。
-実行時間が長いので、コマンド実行して放置しておこう！！
 
+cipher コマンド便利だなぁ。。
+実行時間が長いので、コマンド実行して放置しておこう！！
 
 ## 参考資料
 
