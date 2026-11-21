@@ -11,7 +11,7 @@ published: true
 ずっと放置していた Windows PC を、ついに捨てました！！
 復元されると困るデータがあるけど、消去ソフトにお金はかけたくない。そんなときに見つけたのが cipher コマンドです。
 
-https://www.youtube.com/watch?v=TxXGpRvKckw&t=607s
+参考にした動画: [YouTube（10:07 から）](https://www.youtube.com/watch?v=TxXGpRvKckw&t=607s)
 
 ## この記事で学べること
 
@@ -35,7 +35,7 @@ cipher は、Windows に最初から入っているコマンドです。
 
 YouTube の動画のとおりに進めて、1 時間程度でできました！
 
-https://www.youtube.com/watch?v=pVcwKfyALy8
+参考にした動画: [YouTube](https://www.youtube.com/watch?v=pVcwKfyALy8)
 
 ## cipher /w の実行
 
