@@ -1,15 +1,18 @@
 ---
 title: PCを捨てる前に cipher /w を使ってみた
-private: false
 tags:
-  - windows
-  - ctf
+  - Windows
+  - CTF
   - writeup
   - コマンドプロンプト
-updated_at: '2026-11-21T07:20:26.352Z'
-id: null
+private: false
+updated_at: '2026-11-21T16:20:33+09:00'
+id: ccacab3a20f0f012267c
 organization_url_name: null
 slide: false
+ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ## はじめに
